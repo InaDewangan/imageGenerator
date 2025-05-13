@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 import './App.css';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
@@ -9,11 +11,18 @@ import TextToImageGenerator from './components/TextToImageGenerator';
 function App() {
   // State to track whether the user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <Router>
-      <div className="App">
-        
         {/* Define routes */}
         <Routes>
           {/* Public Routes */}
@@ -29,15 +38,13 @@ function App() {
             path="/image-generator"
             element={
               isLoggedIn ? (
-                <TextToImageGenerator />
+                <TextToImageGenerator currentUser={currentUser}/>
               ) : (
                 <Navigate to="/login" replace />
               )
             }
           />
         </Routes>
-
-      </div>
     </Router>
   );
 }

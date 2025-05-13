@@ -1,31 +1,3 @@
-// // src/components/Navbar.js
-// import React from 'react';
-// import { Navbar, Nav, Container } from 'react-bootstrap';
-// import { Link } from 'react-router-dom'; // Import Link for navigation
-
-// const CustomNavbar = () => {
-//     return (
-//         <Navbar expand="lg" style={{ background: 'linear-gradient(to right, #f06292, #8e24aa, #42a5f5)' }}>
-//             <Container>
-//                 <Navbar.Brand as={Link} to="/" style={{ color: 'white', fontWeight: 'bold' }}>ImageGenerator</Navbar.Brand>
-//                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//                 <Navbar.Collapse id="basic-navbar-nav">
-//                     <Nav className="ms-auto">
-//                         <Nav.Link as={Link} to="/" style={{ color: 'white'}}>Home</Nav.Link>
-//                         <Nav.Link as={Link} to="/signup" style={{ color: 'white' }}>Sign Up</Nav.Link>
-//                         <Nav.Link as={Link} to="/login" style={{ color: 'white' }}>Login</Nav.Link>
-//                         <Nav.Link href="#about" style={{ color: 'white' }}>About</Nav.Link>
-//                     </Nav>
-//                 </Navbar.Collapse>
-//             </Container>
-//         </Navbar>
-//     );
-// }
-
-// export default CustomNavbar;
-
-
-
 // src/components/Navbar.js
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';

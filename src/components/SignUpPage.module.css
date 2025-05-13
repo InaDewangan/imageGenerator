@@ -1,113 +1,161 @@
 /* Centered layout for the whole page */
 .loginpage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #980ba5ee, #c717dfe8);
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Main container for form and image */
-  .loginform,
-  .loginimage {
-    background-color: #ffffff;
-    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
-    width: 450px; /* Equal width for form and image container */
-    height: 550px;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Left side styling */
-  .loginform {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #980ba5ee, #c717dfe8);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main container for form and image */
+.loginform,
+.loginimage {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+  width: 450px;
+  /* Equal width for form and image container */
+  height: 550px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Left side styling */
+.loginform {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+  color: #333;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1em;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+  text-align: left;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.terms input {
+  margin-right: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #720780e8, #770981ee);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: linear-gradient(to right, #770981ee, #4b6cb7, #720780e8);
+}
+
+.loginlink {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.loginlink a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.loginlink a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Right side image styling */
+.loginimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Makes the image cover the entire container */
+  border-radius: 8px;
+}
+
+.loginimage {
+  width: 500px;
+  height: 550px;
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .loginpage {
     flex-direction: column;
+    height: auto;
+    padding: 30px 10px;
   }
-  
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5em;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 1em;
-  }
-  
-  form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
-    text-align: left;
-  }
-  
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="password"] {
+
+  .loginimage {
+    order: -1;
+    /* Image goes first */
     width: 100%;
-    padding: 10px;
-    margin-bottom: 1em;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .terms {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-  }
-  
-  .terms input {
-    margin-right: 8px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(to right, #720780e8, #770981ee);
-    color: white;
+    height: auto;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
   }
-  
-  button:hover {
-    background: linear-gradient(to right, #770981ee, #4b6cb7, #720780e8);
-  }
-  
-  .loginlink {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .loginlink a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .loginlink a:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  /* Right side image styling */
+
   .loginimage img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Makes the image cover the entire container */
-    border-radius: 8px;
+    height: 250px;
+    border-radius: 5px;
+    object-fit: cover;
   }
-  
-  .loginimage {
-    width: 500px;
-    height: 550px;
+
+  .loginform {
+    width: 100%;
+    height: auto;
   }
+}
+
+/* Input focus animation */
+form input:focus {
+  border-color: #9b59b6;
+  box-shadow: 0 0 5px rgba(155, 89, 182, 0.5);
+  outline: none;
+  transition: 0.3s ease;
+}
+
+/* Button animation */
+button {
+  transition: background 0.4s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
