@@ -51,7 +51,7 @@ const TextToImageGenerator = ({ currentUser }) => {
       // Sign out and redirect
       await auth.signOut();
       alert("Account deleted and logged out successfully.");
-      navigate("/login");
+      navigate("/signup");
     } catch (error) {
       console.error("Error deleting account:", error);
       alert("Error: " + error.message);
